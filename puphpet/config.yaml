@@ -10,7 +10,7 @@ vagrantfile-local:
         network:
             private_network: 192.168.44.44
             forwarded_port:
-                Bw4bNq8CrjCF:
+                BFilGp4TYnMo:
                     host: '5738'
                     guest: '22'
         post_up_message: ''
@@ -32,7 +32,7 @@ vagrantfile-local:
                     - '--hiera_config /vagrant/puphpet/puppet/hiera.yaml'
                     - '--parser future'
         synced_folder:
-            qLmg5S6VnmlZ:
+            FpK1thbaafev:
                 source: /vw/personal/
                 target: /var/www/personal
                 sync_type: default
@@ -64,6 +64,7 @@ server:
     packages:
         - vim
         - htop
+        - tmux
 firewall:
     install: '1'
     rules: null
@@ -79,7 +80,7 @@ apache:
     modules:
         - rewrite
     vhosts:
-        hzSiWW8KAZPS:
+        ffPimX0gfeMR:
             servername: demo.com
             docroot: /var/www/personal/demo.com
             port: '80'
@@ -97,7 +98,7 @@ apache:
             ssl_key: ''
             ssl_chain: ''
             ssl_certs_dir: ''
-        6raWTP0DY0Tr:
+        8AglGUTLXsDe:
             servername: slides.demo.com
             docroot: /var/www/personal/slides.demo.com
             port: '80'
@@ -123,7 +124,7 @@ nginx:
         proxy_buffer_size: 128k
         proxy_buffers: '4 256k'
     vhosts:
-        3bN8yb3OsAwx:
+        hnvUNPm2lywP:
             server_name: awesome.dev
             server_aliases:
                 - www.awesome.dev
@@ -149,6 +150,8 @@ php:
             - cli
             - intl
             - mcrypt
+            - curl
+            - gd
         pear: {  }
         pecl:
             - pecl_http
@@ -187,7 +190,7 @@ drush:
 ruby:
     install: '1'
     versions:
-        XBEIJwb6Q6kW:
+        gxlSOJOdKkDg:
             version: ''
 nodejs:
     install: '0'
@@ -196,7 +199,7 @@ python:
     install: '1'
     packages: {  }
     versions:
-        fLivxT1IdnAN:
+        rouaneJ3JlvS:
             version: ''
 mysql:
     install: '1'
@@ -204,7 +207,7 @@ mysql:
     root_password: root
     adminer: 0
     databases:
-        XMKcnQ87XPLt:
+        WhIzlq6APnAR:
             grant:
                 - ALL
             name: db
