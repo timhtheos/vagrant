@@ -4,7 +4,7 @@ vagrantfile-local:
         box: puphpet/ubuntu1404-x64
         box_url: puphpet/ubuntu1404-x64
         hostname: ''
-        memory: '1536'
+        memory: '2048'
         cpus: '3'
         chosen_provider: virtualbox
         network:
