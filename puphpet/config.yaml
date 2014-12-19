@@ -10,7 +10,7 @@ vagrantfile-local:
         network:
             private_network: 192.168.44.44
             forwarded_port:
-                wrgSZxaIZXTH:
+                enFJ3rr8RMDI:
                     host: '5738'
                     guest: '22'
         post_up_message: ''
@@ -32,7 +32,7 @@ vagrantfile-local:
                     - '--hiera_config /vagrant/puphpet/puppet/hiera.yaml'
                     - '--parser future'
         synced_folder:
-            aKC1ccoPtBa7:
+            GNiPR2iZwFNR:
                 owner: ''
                 group: ''
                 source: /vw/personal/
@@ -82,7 +82,7 @@ apache:
     modules:
         - rewrite
     vhosts:
-        QaReFnyeBM5e:
+        mN5l340siN1P:
             servername: demo.com
             docroot: /var/www/personal/demo.com
             port: '80'
@@ -100,7 +100,7 @@ apache:
             ssl_key: ''
             ssl_chain: ''
             ssl_certs_dir: ''
-        Nf0oCKCkvhne:
+        U4DXtvsvbitg:
             servername: slides.demo.com
             docroot: /var/www/personal/slides.demo.com
             port: '80'
@@ -118,11 +118,11 @@ apache:
             ssl_key: ''
             ssl_chain: ''
             ssl_certs_dir: ''
-        UTh0Dt5AMO25:
+        Rp0j1SjJw3Cv:
             servername: reformedpost.com
             serveraliases:
                 - www.reformedpost.com
-            docroot: /vw/personal/reformedpost.com/www
+            docroot: /var/www/personal/reformedpost.com/www
             port: '80'
             setenv:
                 - 'APP_ENV dev'
@@ -145,7 +145,7 @@ nginx:
         proxy_buffers: '4 256k'
     upstreams: {  }
     vhosts:
-        R3Vq9XlSNgyT:
+        Rq58Q6u9YWqG:
             proxy: ''
             server_name: awesome.dev
             server_aliases:
@@ -216,7 +216,7 @@ drush:
 ruby:
     install: '1'
     versions:
-        lboQULrchsqj:
+        WUEzmNzA1t5y:
             version: ''
 nodejs:
     install: '0'
@@ -225,7 +225,7 @@ python:
     install: '1'
     packages: {  }
     versions:
-        KUyxx2F200XE:
+        wglqCpj5ljpk:
             version: ''
 mysql:
     install: '1'
@@ -233,7 +233,7 @@ mysql:
     root_password: root
     adminer: 0
     databases:
-        EVdw1qTtY5Qn:
+        SOSOCCli2bMw:
             grant:
                 - ALL
             name: db
@@ -241,7 +241,7 @@ mysql:
             user: user
             password: pswd
             sql_file: ''
-        UvOBEvApnuTd:
+        iYLNgMdkVnUJ:
             grant:
                 - ALL
             name: reformedpost
