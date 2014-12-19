@@ -10,7 +10,7 @@ vagrantfile-local:
         network:
             private_network: 192.168.44.44
             forwarded_port:
-                BFilGp4TYnMo:
+                wrgSZxaIZXTH:
                     host: '5738'
                     guest: '22'
         post_up_message: ''
@@ -32,7 +32,9 @@ vagrantfile-local:
                     - '--hiera_config /vagrant/puphpet/puppet/hiera.yaml'
                     - '--parser future'
         synced_folder:
-            FpK1thbaafev:
+            aKC1ccoPtBa7:
+                owner: ''
+                group: ''
                 source: /vw/personal/
                 target: /var/www/personal
                 sync_type: default
@@ -80,7 +82,7 @@ apache:
     modules:
         - rewrite
     vhosts:
-        ffPimX0gfeMR:
+        QaReFnyeBM5e:
             servername: demo.com
             docroot: /var/www/personal/demo.com
             port: '80'
@@ -98,7 +100,7 @@ apache:
             ssl_key: ''
             ssl_chain: ''
             ssl_certs_dir: ''
-        8AglGUTLXsDe:
+        Nf0oCKCkvhne:
             servername: slides.demo.com
             docroot: /var/www/personal/slides.demo.com
             port: '80'
@@ -116,6 +118,24 @@ apache:
             ssl_key: ''
             ssl_chain: ''
             ssl_certs_dir: ''
+        UTh0Dt5AMO25:
+            servername: reformedpost.com
+            serveraliases:
+                - www.reformedpost.com
+            docroot: /vw/personal/reformedpost.com/www
+            port: '80'
+            setenv:
+                - 'APP_ENV dev'
+            options:
+                - Indexes
+                - FollowSymLinks
+                - MultiViews
+            engine: php
+            custom_fragment: ''
+            ssl_cert: ''
+            ssl_key: ''
+            ssl_chain: ''
+            ssl_certs_dir: ''
     mod_pagespeed: 0
 nginx:
     install: '0'
@@ -123,8 +143,10 @@ nginx:
         default_vhost: 1
         proxy_buffer_size: 128k
         proxy_buffers: '4 256k'
+    upstreams: {  }
     vhosts:
-        hnvUNPm2lywP:
+        R3Vq9XlSNgyT:
+            proxy: ''
             server_name: awesome.dev
             server_aliases:
                 - www.awesome.dev
@@ -138,6 +160,7 @@ nginx:
             envvars:
                 - 'APP_ENV dev'
             engine: php
+            client_max_body_size: 1m
             ssl_cert: ''
             ssl_key: ''
 php:
@@ -148,10 +171,10 @@ php:
     modules:
         php:
             - cli
-            - intl
-            - mcrypt
             - curl
             - gd
+            - intl
+            - mcrypt
         pear: {  }
         pecl:
             - pecl_http
@@ -184,13 +207,16 @@ xdebug:
         xdebug.remote_port: '9000'
 xhprof:
     install: '0'
+wpcli:
+    install: '0'
+    version: ''
 drush:
     install: '1'
     version: 6.3.0
 ruby:
     install: '1'
     versions:
-        gxlSOJOdKkDg:
+        lboQULrchsqj:
             version: ''
 nodejs:
     install: '0'
@@ -199,7 +225,7 @@ python:
     install: '1'
     packages: {  }
     versions:
-        rouaneJ3JlvS:
+        KUyxx2F200XE:
             version: ''
 mysql:
     install: '1'
@@ -207,13 +233,21 @@ mysql:
     root_password: root
     adminer: 0
     databases:
-        WhIzlq6APnAR:
+        EVdw1qTtY5Qn:
             grant:
                 - ALL
             name: db
             host: localhost
             user: user
             password: pswd
+            sql_file: ''
+        UvOBEvApnuTd:
+            grant:
+                - ALL
+            name: reformedpost
+            host: localhost
+            user: reformedpost
+            password: reformedpost2014
             sql_file: ''
 postgresql:
     install: '0'
@@ -273,6 +307,11 @@ rabbitmq:
 elastic_search:
     install: '0'
     settings:
+        version: ''
         java_install: true
-        autoupgrade: true
+solr:
+    install: '0'
+    settings:
+        version: ''
+        port: ''
 
