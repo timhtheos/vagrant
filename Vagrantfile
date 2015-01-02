@@ -124,6 +124,7 @@ Vagrant.configure('2') do |config|
 
       virtualbox.customize ['modifyvm', :id, '--memory', "#{data['vm']['memory']}"]
       virtualbox.customize ['modifyvm', :id, '--cpus', "#{data['vm']['cpus']}"]
+      virtualbox.customize ['modifyvm', :id, '--natdnshostresolver1', "on"]
 
       if data['vm']['provider']['virtualbox']['modifyvm']['name'].nil? ||
         data['vm']['provider']['virtualbox']['modifyvm']['name'].empty?
