@@ -8,9 +8,9 @@ vagrantfile-local:
         cpus: '4'
         chosen_provider: virtualbox
         network:
-            private_network: 192.168.44.44
+            private_network: 192.168.77.77
             forwarded_port:
-                OBKi2mQQnis4:
+                hrDZrD8ie3YT:
                     host: '5738'
                     guest: '22'
         post_up_message: ''
@@ -32,11 +32,11 @@ vagrantfile-local:
                     - '--hiera_config /vagrant/puphpet/puppet/hiera.yaml'
                     - '--parser future'
         synced_folder:
-            Oh10Y6mVLJrG:
+            NpGFg24yYEgx:
                 owner: ''
                 group: ''
-                source: /vw/personal/
-                target: /var/www/personal
+                source: ..
+                target: /var/www
                 sync_type: nfs
                 rsync:
                     args:
@@ -67,11 +67,18 @@ server:
         - vim
         - htop
         - tmux
+users_groups:
+    install: '1'
+    groups: {  }
+    users: {  }
+cron:
+    install: '1'
+    jobs: {  }
 firewall:
     install: '1'
-    rules: null
+    rules: {  }
 apache:
-    install: '1'
+    install: '0'
     settings:
         user: www-data
         group: www-data
@@ -81,91 +88,36 @@ apache:
         sendfile: 0
     modules:
         - rewrite
-    vhosts:
-        iBhKFImHhOcc:
-            servername: demo.com
-            docroot: /var/www/personal/demo.com
-            port: '80'
-            setenv:
-                - 'APP_ENV dev'
-            override:
-                - All
-            options:
-                - Indexes
-                - FollowSymLinks
-                - MultiViews
-            engine: php
-            custom_fragment: ''
-            ssl_cert: ''
-            ssl_key: ''
-            ssl_chain: ''
-            ssl_certs_dir: ''
-        Px2sPfotpri5:
-            servername: slides.demo.com
-            docroot: /var/www/personal/slides.demo.com
-            port: '80'
-            setenv:
-                - 'APP_ENV dev'
-            override:
-                - All
-            options:
-                - Indexes
-                - FollowSymLinks
-                - MultiViews
-            engine: php
-            custom_fragment: ''
-            ssl_cert: ''
-            ssl_key: ''
-            ssl_chain: ''
-            ssl_certs_dir: ''
-        1k3TbjgKvGox:
-            servername: reformedpost.com
-            serveraliases:
-                - www.reformedpost.com
-            docroot: /var/www/personal/reformedpost.com/www
-            port: '80'
-            setenv:
-                - 'APP_ENV dev'
-            options:
-                - Indexes
-                - FollowSymLinks
-                - MultiViews
-            engine: php
-            custom_fragment: ''
-            ssl_cert: ''
-            ssl_key: ''
-            ssl_chain: ''
-            ssl_certs_dir: ''
-    mod_pagespeed: 0
+    vhosts: {  }
 nginx:
-    install: '0'
+    install: '1'
     settings:
         default_vhost: 1
         proxy_buffer_size: 128k
         proxy_buffers: '4 256k'
     upstreams: {  }
     vhosts:
-        8X9WW2siRhDq:
+        lxwcskfeqlro:
             proxy: ''
-            server_name: awesome.dev
+            server_name: default.dev
             server_aliases:
-                - www.awesome.dev
-            www_root: /var/www/awesome
+                - www.default.dev
+            www_root: /var/www/default.dev
             listen_port: '80'
-            location: \.php$
             index_files:
                 - index.html
                 - index.htm
                 - index.php
-            envvars:
-                - 'APP_ENV dev'
-            engine: php
             client_max_body_size: 1m
             ssl_cert: ''
             ssl_key: ''
+            ssl_port: ''
 php:
     install: '1'
-    version: '56'
+    settings:
+        version: '56'
+    fpm_settings:
+        port: 9000
     composer: '1'
     composer_home: ''
     modules:
@@ -182,8 +134,6 @@ php:
         display_errors: On
         error_reporting: '-1'
         session.save_path: /var/lib/php/session
-    timezone: Asia/Manila
-    mod_php: 0
 hhvm:
     install: '0'
     nightly: 0
@@ -216,7 +166,7 @@ drush:
 ruby:
     install: '1'
     versions:
-        o2YsN0uhv3Br:
+        mCeXGw4FVrIU:
             version: ''
 nodejs:
     install: '0'
@@ -225,46 +175,30 @@ python:
     install: '1'
     packages: {  }
     versions:
-        fwRZRISgVhkl:
+        7mZp8RmIEN6t:
             version: ''
 mysql:
     install: '1'
-    override_options: {  }
-    root_password: root
-    adminer: 0
-    databases:
-        pkCVG57RkrnX:
-            grant:
-                - ALL
-            name: db
-            host: localhost
-            user: user
-            password: pswd
-            sql_file: ''
-        i1SHQLjzj3ew:
-            grant:
-                - ALL
-            name: reformedpost
-            host: localhost
-            user: reformedpost
-            password: reformedpost2014
-            sql_file: ''
+    settings:
+        version: '5.6'
+        root_password: root
+        override_options: {  }
+    adminer: '1'
+    users: {  }
+    databases: {  }
+    grants: {  }
 postgresql:
     install: '0'
     settings:
-        root_password: '123'
-        user_group: postgres
-        encoding: UTF8
-        version: '9.3'
+        global:
+            encoding: UTF8
+            version: '9.3'
+        server:
+            postgres_password: ''
     databases: {  }
+    users: {  }
+    grants: {  }
     adminer: 0
-mariadb:
-    install: '0'
-    override_options: {  }
-    root_password: '123'
-    adminer: 0
-    databases: {  }
-    version: '10.0'
 sqlite:
     install: '0'
     adminer: 0
@@ -273,6 +207,7 @@ mongodb:
     install: '0'
     settings:
         auth: 1
+        bind_ip: 127.0.0.1
         port: '27017'
     databases: {  }
 redis:
@@ -304,10 +239,13 @@ rabbitmq:
     install: '0'
     settings:
         port: '5672'
+    users: {  }
+    vhosts: {  }
+    plugins: {  }
 elastic_search:
     install: '0'
     settings:
-        version: ''
+        version: null
         java_install: true
 solr:
     install: '0'
